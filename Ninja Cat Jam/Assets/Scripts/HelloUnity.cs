@@ -16,7 +16,9 @@ public class HelloUnity : MonoBehaviour
     void Update()
     {
         Transform transform = GetComponent<Transform>();
+
         if (transform.position.y < -3) {
+
             var x = GetComponent<Rigidbody2D>();
             x.velocity = new Vector3(0, 0);
             transform.position = new Vector3(0, 0);
