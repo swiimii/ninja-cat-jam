@@ -5,8 +5,8 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     public BasicMovementBehavior[] behaviors;
-    public BoxCollider2D feet;
 
+    bool grounded;
     enum b {BasicMovement, DoubleJump}; //for navigating through the "BasicMovementBehavior" and "PowerupsAcquired" array
     bool[] powerupsAcquired = new bool[sizeof(b)];
 
@@ -28,8 +28,10 @@ public class MovementController : MonoBehaviour
                 behaviors[(int)b.BasicMovement].OnJump();
             }
         }
+
+
         
-
-
     }
+
+
 }
