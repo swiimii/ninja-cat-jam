@@ -22,10 +22,14 @@ public class BasicMovementBehavior : MonoBehaviour
             rb2d.velocity = new Vector2(moveSpeed * Input.GetAxisRaw("Horizontal"), rb2d.velocity.y);
         }
         
-        else if(Mathf.Abs(rb2d.velocity.x) < moveSpeed && Input.GetAxisRaw("Horizontal") != 0)
+        else if(Mathf.Abs(rb2d.velocity.x) < moveSpeed)
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x + Input.GetAxisRaw("Horizontal"), rb2d.velocity.y);
 
+        }
+        else
+        {
+            rb2d.velocity = new Vector2(rb2d.velocity.x * moveSpeed / Mathf.Abs(rb2d.velocity.x) - (0.15f * rb2d.velocity.x), rb2d.velocity.y);
         }
         
         
