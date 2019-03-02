@@ -29,7 +29,12 @@ public class MovementController : MonoBehaviour
             }
         }
         
-
+        if (Input.GetButtonUp("Fire1"))
+        {
+            var position = GetComponent<Transform>();
+            var velocity = GetComponent<Rigidbody2D>().velocity;
+            behaviors[(int)b.BasicMovement].OnFire(position, velocity);
+        }
 
     }
 }
