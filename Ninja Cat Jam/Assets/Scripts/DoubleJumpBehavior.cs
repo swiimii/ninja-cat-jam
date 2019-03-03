@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class DoubleJumpBehavior : BasicMovementBehavior
 {
-    // Start is called before the first frame update
-    void Start()
+    public int jumpsLeft;
+
+    public override void OnJump()
     {
-        
+        if (feetStatus.grounded || jumpsLeft != 0)
+        {
+            var rb2d = GetComponent<Rigidbody2D>();
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
+            jumpsLeft -= 1;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void SetJumpsLeft(int val)
     {
-        
+        jumpsLeft = val;
     }
 }
