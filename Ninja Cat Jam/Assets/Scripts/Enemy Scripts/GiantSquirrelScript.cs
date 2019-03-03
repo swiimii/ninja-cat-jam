@@ -17,7 +17,7 @@ public class GiantSquirrelScript : EnemyBehavior
     void Update()
     {
         timeElapsed += Time.deltaTime;
-        if (timeElapsed > attackInterval && Mathf.Abs(target.transform.position.x - transform.position.x) < dangerDistance)
+        if (timeElapsed > attackInterval && target && Mathf.Abs(target.transform.position.x - transform.position.x) < dangerDistance)
         {
             timeElapsed = 0;
             var position = GetComponent<Transform>().position;
