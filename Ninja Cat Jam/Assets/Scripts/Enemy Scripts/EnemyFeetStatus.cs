@@ -27,9 +27,7 @@ public class EnemyFeetStatus : MonoBehaviour
 
     private void Update()
     {
-        var dist = 6;
-        var dir = new Vector3(0, -1, 0);
-        Debug.DrawRay(transform.position, dir * dist, Color.green);
-        grounded = Physics2D.Raycast(transform.position,dir,LayerMask.NameToLayer("Ground"));
+        Debug.DrawRay(transform.position + new Vector3(0, -6, 0), new Vector2(0, -1), Color.green);
+        grounded = Physics2D.Raycast(transform.position + new Vector3(0,-6,0),new Vector2(0,-1), 1f);
     }
 }
