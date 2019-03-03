@@ -7,7 +7,7 @@ using System;
 public class BasicMovementBehavior : MonoBehaviour
 {
     protected float moveSpeed, jumpSpeed, airControl;
-    protected GameObject feet;
+    protected GameObject feet, projectilePrefab;
     protected FeetStatus feetStatus;
     protected Rigidbody2D rb2d;
 
@@ -17,6 +17,7 @@ public class BasicMovementBehavior : MonoBehaviour
         feet = GameObject.FindGameObjectWithTag("Feet");
         rb2d = GetComponent<Rigidbody2D>();
         feetStatus = GetComponent<FeetStatus>();
+        projectilePrefab = GetComponent<MovementController>().projectilePrefab;
     }
     public void OnHorizontalMove()
     {
@@ -66,7 +67,7 @@ public class BasicMovementBehavior : MonoBehaviour
     {
         var position = startPosition.position;
         position.x += 2;
-        GameObject projectile = Instantiate(prefab, startPosition);
+        GameObject projectile = Instantiate(projectilePrefab, startPosition);
         projectile.GetComponent<Transform>().position = position;
 
         var rigidBody = projectile.GetComponent<Rigidbody2D>();
