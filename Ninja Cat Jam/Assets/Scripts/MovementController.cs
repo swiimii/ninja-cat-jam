@@ -5,16 +5,21 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     public BasicMovementBehavior[] behaviors;
+    public float moveSpeed, jumpSpeed;
+    [Range(0, 40)]
+    public float airControl;
+    public bool[] powerupsAcquired = new bool[sizeof(b)];
 
     bool grounded;
     enum b {BasicMovement, DoubleJump}; //for navigating through the "BasicMovementBehavior" and "PowerupsAcquired" array
-    bool[] powerupsAcquired = new bool[sizeof(b)];
+    
 
     // Update is called once per frame
     void Update()
     {
         //Update horizontal movement
         behaviors[(int)b.BasicMovement].OnHorizontalMove();
+        
 
         //CheckJump
         if(Input.GetButtonDown("Jump"))

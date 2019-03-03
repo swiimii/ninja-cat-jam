@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BasicMovementBehavior : MonoBehaviour
 {
-    public float moveSpeed, jumpSpeed;
-    private GameObject feet;
-    private FeetStatus feetStatus;
-    private Rigidbody2D rb2d;
+    protected float moveSpeed, jumpSpeed, airControl;
+    protected GameObject feet;
+    protected FeetStatus feetStatus;
+    protected Rigidbody2D rb2d;
 
     private void Start()
     {
@@ -17,6 +17,16 @@ public class BasicMovementBehavior : MonoBehaviour
     }
     public void OnHorizontalMove()
     {
+        moveSpeed = GetComponent<MovementController>().moveSpeed;
+        jumpSpeed = GetComponent<MovementController>().jumpSpeed;
+        airControl = GetComponent<MovementController>().airControl;
+
+        if (rb2d.velocity.x != 0)
+        {
+            //Flip Sprite
+            GetComponent<SpriteRenderer>().flipX = rb2d.velocity.x < 0;
+        }
+
         if (feetStatus.grounded)
         {
             rb2d.velocity = new Vector2(moveSpeed * Input.GetAxisRaw("Horizontal"), rb2d.velocity.y);
@@ -24,18 +34,21 @@ public class BasicMovementBehavior : MonoBehaviour
         
         else if(Mathf.Abs(rb2d.velocity.x) < moveSpeed)
         {
-            rb2d.velocity = new Vector2(rb2d.velocity.x + Input.GetAxisRaw("Horizontal"), rb2d.velocity.y);
+            rb2d.velocity = new Vector2(rb2d.velocity.x + Input.GetAxisRaw("Horizontal") * airControl, rb2d.velocity.y);
 
         }
-        else
+        if (Mathf.Abs(rb2d.velocity.x) >= moveSpeed) 
         {
-            rb2d.velocity = new Vector2(rb2d.velocity.x * moveSpeed / Mathf.Abs(rb2d.velocity.x) - (0.15f * rb2d.velocity.x), rb2d.velocity.y);
+            //sets the velocity to just below the max airspeed
+            rb2d.velocity = new Vector2((moveSpeed - .01f) * rb2d.velocity.x / Mathf.Abs(rb2d.velocity.x), rb2d.velocity.y) ;
         }
+        
+        
         
         
     }
 
-    public void OnJump()
+    public virtual void OnJump()
     {
         if(feetStatus.grounded)
         {
