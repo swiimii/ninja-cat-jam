@@ -23,7 +23,7 @@ public class BasicMovementBehavior : MonoBehaviour
     }
     public void OnHorizontalMove()
     {
-        
+
         moveSpeed = GetComponent<MovementController>().moveSpeed;
         jumpSpeed = GetComponent<MovementController>().jumpSpeed;
         airControl = GetComponent<MovementController>().airControl;
@@ -80,7 +80,7 @@ public class BasicMovementBehavior : MonoBehaviour
         projectile.GetComponent<Transform>().position = position;
 
         var rigidBody = projectile.GetComponent<Rigidbody2D>();
-        rigidBody.velocity = new Vector2(velocity.x/3 + 50, velocity.y/3 + 20);
+        rigidBody.velocity = Shuriken.CalcVelocity(startPosition.position);
         rigidBody.gravityScale = 0.5F;
 
     }
