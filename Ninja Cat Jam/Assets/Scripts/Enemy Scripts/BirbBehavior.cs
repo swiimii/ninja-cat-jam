@@ -25,12 +25,14 @@ public class BirbBehavior : EnemyBehavior
         
     }
 
-    public override void OnWallHit()
+    public override void SetDirection(int i)
     {
-        base.OnWallHit();
-        headHitbox.offset.Set(headHitbox.offset.x * -1, headHitbox.offset.y);
-        Debug.Log("Flip");
+        direction = i / Mathf.Abs(i);
 
+        //GetComponent<SpriteRenderer>().flipX = direction == 1;
+        Vector3 scale = transform.localScale;
+        scale.x = -i;
+        transform.localScale = scale;
     }
 
     public override void OnDamaged(int incomingDamage)

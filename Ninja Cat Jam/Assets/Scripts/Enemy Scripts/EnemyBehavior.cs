@@ -23,11 +23,6 @@ public abstract class EnemyBehavior : MonoBehaviour
 
     public abstract void OnJump();
 
-    public virtual void OnWallHit()
-    {
-        direction *= -1;
-
-    }
 
     public abstract void OnPlayerHit();
 
@@ -36,5 +31,6 @@ public abstract class EnemyBehavior : MonoBehaviour
         
     }
 
+    public abstract void SetDirection(int i);
 
 }

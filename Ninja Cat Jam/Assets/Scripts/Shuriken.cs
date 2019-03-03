@@ -8,6 +8,11 @@ public class Shuriken : MonoBehaviour
 {
     double timeElapsed = 0;
 
+    private void Start()
+    {
+        Physics2D.IgnoreCollision(GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>(), GetComponent<BoxCollider2D>());
+    }
+
     public static Vector2 CalcVelocity(Vector2 originPosition, float magnitude)
     {
         Vector2 mousePosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
