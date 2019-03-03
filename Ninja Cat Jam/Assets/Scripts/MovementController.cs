@@ -41,6 +41,11 @@ public class MovementController : MonoBehaviour
             behaviors[(int)b.BasicMovement].OnFire();
         }
 
+        if (Input.GetAxisRaw("Vertical") < 0)
+        {
+            behaviors[(int)b.BasicMovement].OnCrouch();
+        }
+
 
     }
 

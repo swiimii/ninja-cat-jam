@@ -84,4 +84,13 @@ public class BasicMovementBehavior : MonoBehaviour
         rigidBody.gravityScale = 0.5F;
 
     }
+
+    public virtual void OnCrouch()
+    {
+        if (!feetStatus.grounded)
+        {
+            var rigidBody = GetComponent<Rigidbody2D>();
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, rigidBody.velocity.y - 7);
+        }
+    }
 }
