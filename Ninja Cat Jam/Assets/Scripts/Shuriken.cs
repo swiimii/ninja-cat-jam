@@ -12,14 +12,7 @@ public class Shuriken : MonoBehaviour
     {
         double magnitude = 70;
         Vector2 mousePosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        print("origin x: " + originPosition.x);
-        print("origin y: " + originPosition.y);
-        print("mouse x: " + mousePosition.x);
-        print("mouse y: " + mousePosition.y);
-
         double theta = Math.Atan2(mousePosition.y - originPosition.y, mousePosition.x - originPosition.x);
-        print(theta);
         return new Vector2(Convert.ToSingle(Math.Cos(theta) * magnitude), Convert.ToSingle(Math.Sin(theta) * magnitude));
     }
 
@@ -28,10 +21,16 @@ public class Shuriken : MonoBehaviour
         var trans = GetComponent<Transform>();
         trans.Rotate(new Vector3(0, 0, 15));
         timeElapsed += Time.deltaTime;
-        if (timeElapsed > 1)
+        if (timeElapsed > 4)
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        Destroy(this.gameObject);
     }
 
 }
