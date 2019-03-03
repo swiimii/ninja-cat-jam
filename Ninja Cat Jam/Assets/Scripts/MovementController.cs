@@ -11,6 +11,7 @@ public class MovementController : MonoBehaviour
     public bool[] powerupsAcquired = new bool[sizeof(b)];
     public GameObject projectilePrefab;
     public Animator playerAnimator;
+    public AmmoController ammo;
 
     bool grounded;
     enum b {BasicMovement, DoubleJump}; //for navigating through the "BasicMovementBehavior" and "PowerupsAcquired" array
@@ -36,8 +37,9 @@ public class MovementController : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Fire1") && ammo.HasAmmo())
         {
+            ammo.ExpendAmmo();
             behaviors[(int)b.BasicMovement].OnFire();
         }
 
