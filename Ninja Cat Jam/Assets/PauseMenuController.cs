@@ -16,7 +16,6 @@ public class PauseMenuController : MonoBehaviour
     }
     public void ResumeLevel()
     {
-        controller.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
 
@@ -34,7 +33,6 @@ public class PauseMenuController : MonoBehaviour
     public void PauseGame()
     {
         pauseMenu.gameObject.SetActive(true);
-        controller.gameObject.SetActive(false);
 
 
     }

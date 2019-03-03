@@ -45,7 +45,6 @@ public class PlayerHealthScript : MonoBehaviour
         {
             dead = true;
             deathScreen.gameObject.SetActive(true);
-            Destroy(gameObject);
         }
     }
 
