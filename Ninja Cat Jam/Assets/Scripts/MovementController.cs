@@ -12,6 +12,7 @@ public class MovementController : MonoBehaviour
     public GameObject projectilePrefab;
     public Animator playerAnimator;
     public AmmoController ammo;
+    public PauseMenuController pauseMenu;
 
     bool grounded;
     enum b {BasicMovement, DoubleJump}; //for navigating through the "BasicMovementBehavior" and "PowerupsAcquired" array
@@ -46,6 +47,11 @@ public class MovementController : MonoBehaviour
         if (Input.GetAxisRaw("Vertical") < 0)
         {
             behaviors[(int)b.BasicMovement].OnCrouch();
+        }
+
+        if(Input.GetButtonDown("Cancel"))
+        {
+            pauseMenu.PauseGame();
         }
 
 

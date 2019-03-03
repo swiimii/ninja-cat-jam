@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class PlayerHealthScript : MonoBehaviour
 {
     public int startingHealth;
-    
+    public Canvas deathScreen;
+    public GameObject enemiesParent;
+
     private int health;
     private bool dead;
     private void Start()
@@ -42,7 +44,7 @@ public class PlayerHealthScript : MonoBehaviour
         if (health <= 0)
         {
             dead = true;
-            Destroy(gameObject);
+            deathScreen.gameObject.SetActive(true);
         }
     }
 
