@@ -29,8 +29,6 @@ public class BasicMovementBehavior : MonoBehaviour
         position.x += 2;
         GameObject projectile = Instantiate(prefab, startPosition);
         projectile.GetComponent<Transform>().position = position;
-        projectile.AddComponent<Rigidbody2D>();
-        projectile.AddComponent<BoxCollider2D>();
 
         var rigidBody = projectile.GetComponent<Rigidbody2D>();
         rigidBody.velocity = new Vector2(velocity.x/3 + 50, velocity.y/3 + 20);
