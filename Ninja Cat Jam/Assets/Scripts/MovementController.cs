@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     public BasicMovementBehavior[] behaviors;
-    public float moveSpeed, jumpSpeed;
+    public float moveSpeed, jumpSpeed, shurikenVelocity;
     [Range(0, 40)]
     public float airControl;
     public bool[] powerupsAcquired = new bool[sizeof(b)];
@@ -38,9 +38,7 @@ public class MovementController : MonoBehaviour
 
         if (Input.GetButtonUp("Fire1"))
         {
-            var position = GetComponent<Transform>();
-            var velocity = GetComponent<Rigidbody2D>().velocity;
-            behaviors[(int)b.BasicMovement].OnFire(position, velocity);
+            behaviors[(int)b.BasicMovement].OnFire();
         }
 
 

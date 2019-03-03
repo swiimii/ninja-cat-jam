@@ -8,9 +8,8 @@ public class Shuriken : MonoBehaviour
 {
     double timeElapsed = 0;
 
-    public static Vector2 CalcVelocity(Vector2 originPosition)
+    public static Vector2 CalcVelocity(Vector2 originPosition, float magnitude)
     {
-        double magnitude = 70;
         Vector2 mousePosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         print("origin x: " + originPosition.x);
@@ -26,11 +25,12 @@ public class Shuriken : MonoBehaviour
     public void Update()
     {
         var trans = GetComponent<Transform>();
+        var rb = GetComponent<Rigidbody2D>();
         trans.Rotate(new Vector3(0, 0, 15));
         timeElapsed += Time.deltaTime;
         if (timeElapsed > 1)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 
