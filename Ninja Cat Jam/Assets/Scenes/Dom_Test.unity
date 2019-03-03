@@ -242,7 +242,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviors: []
-  feet: {fileID: 0}
+  moveSpeed: 40
+  jumpSpeed: 40
+  airControl: 0
+  powerupsAcquired: 00000000
+  projectilePrefab: {fileID: 0}
 --- !u!114 &840523572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,8 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef1be534a5b4834188fbe85b2862683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
-  jumpSpeed: 0
+  jumpsLeft: 2
 --- !u!114 &840523573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,8 +272,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25589937a0b981a48934c869a7b71b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  jumpSpeed: 0
 --- !u!61 &840523574
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -287,7 +288,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.69134945, y: 0.50000006}
     oldSize: {x: 9, y: 11.1}
     newSize: {x: 9, y: 11.1}
     adaptiveTilingThreshold: 0.5
