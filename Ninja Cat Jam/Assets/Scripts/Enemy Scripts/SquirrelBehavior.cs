@@ -40,4 +40,9 @@ public class SquirrelBehavior : EnemyBehavior
     public override void OnPlayerHit()
     {
     }
+
+    public override void SetDirection(int i)
+    {
+        //throw new System.NotImplementedException();
+    }
 }
