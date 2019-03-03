@@ -6,7 +6,7 @@ using System;
 
 public class BasicMovementBehavior : MonoBehaviour
 {
-    protected float moveSpeed, jumpSpeed, airControl;
+    protected float moveSpeed, jumpSpeed, airControl, shurikenVelocity;
     protected GameObject feet, projectilePrefab;
     protected FeetStatus feetStatus;
     protected Rigidbody2D rb2d;
@@ -27,6 +27,8 @@ public class BasicMovementBehavior : MonoBehaviour
         moveSpeed = GetComponent<MovementController>().moveSpeed;
         jumpSpeed = GetComponent<MovementController>().jumpSpeed;
         airControl = GetComponent<MovementController>().airControl;
+        shurikenVelocity = GetComponent<MovementController>().shurikenVelocity;
+      
 
         if (rb2d.velocity.x != 0)
         {
@@ -55,10 +57,7 @@ public class BasicMovementBehavior : MonoBehaviour
             //sets the velocity to just below the max airspeed
             rb2d.velocity = new Vector2((moveSpeed - .01f) * rb2d.velocity.x / Mathf.Abs(rb2d.velocity.x), rb2d.velocity.y) ;
         }
-
-
-
-
+        
     }
 
     public virtual void OnJump()
@@ -72,15 +71,16 @@ public class BasicMovementBehavior : MonoBehaviour
 
     }
 
-    public void OnFire(Transform startPosition, Vector2 velocity)
+    public void OnFire()
     {
-        var position = startPosition.position;
+
+        var position = GetComponent<Transform>().position;
         position.x += 2;
-        GameObject projectile = Instantiate(projectilePrefab, startPosition);
+        GameObject projectile = Instantiate(projectilePrefab, GetComponent<Transform>());
         projectile.GetComponent<Transform>().position = position;
 
         var rigidBody = projectile.GetComponent<Rigidbody2D>();
-        rigidBody.velocity = Shuriken.CalcVelocity(startPosition.position);
+        rigidBody.velocity = Shuriken.CalcVelocity(position, shurikenVelocity);
         rigidBody.gravityScale = 0.5F;
 
     }
