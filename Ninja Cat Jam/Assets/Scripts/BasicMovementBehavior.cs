@@ -13,23 +13,20 @@ public class BasicMovementBehavior : MonoBehaviour
     protected Animator playerAnimator;
 
 
-    private void Start()
+    public void Start()
     {
         playerAnimator = GetComponent<MovementController>().playerAnimator;
         feet = GameObject.FindGameObjectWithTag("Feet");
         rb2d = GetComponent<Rigidbody2D>();
         feetStatus = GetComponent<FeetStatus>();
         projectilePrefab = GetComponent<MovementController>().projectilePrefab;
-    }
-    public void OnHorizontalMove()
-    {
-
         moveSpeed = GetComponent<MovementController>().moveSpeed;
         jumpSpeed = GetComponent<MovementController>().jumpSpeed;
         airControl = GetComponent<MovementController>().airControl;
         shurikenVelocity = GetComponent<MovementController>().shurikenVelocity;
-      
-
+    }
+    public void OnHorizontalMove()
+    {
         if (rb2d.velocity.x != 0)
         {
             //Flip Sprite
@@ -45,11 +42,13 @@ public class BasicMovementBehavior : MonoBehaviour
         if (feetStatus.grounded)
         {
             rb2d.velocity = new Vector2(moveSpeed * Input.GetAxisRaw("Horizontal"), rb2d.velocity.y);
+            playerAnimator.SetBool("isAirborne", false);
         }
 
         else if(Mathf.Abs(rb2d.velocity.x) < moveSpeed)
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x + Input.GetAxisRaw("Horizontal") * airControl, rb2d.velocity.y);
+            playerAnimator.SetBool("isAirborne", true);
 
         }
         if (Mathf.Abs(rb2d.velocity.x) >= moveSpeed)
@@ -57,6 +56,8 @@ public class BasicMovementBehavior : MonoBehaviour
             //sets the velocity to just below the max airspeed
             rb2d.velocity = new Vector2((moveSpeed - .01f) * rb2d.velocity.x / Mathf.Abs(rb2d.velocity.x), rb2d.velocity.y) ;
         }
+
+        
         
     }
 
@@ -83,5 +84,14 @@ public class BasicMovementBehavior : MonoBehaviour
         rigidBody.velocity = Shuriken.CalcVelocity(position, shurikenVelocity);
         rigidBody.gravityScale = 0.5F;
 
+    }
+
+    public virtual void OnCrouch()
+    {
+        if (!feetStatus.grounded)
+        {
+            var rigidBody = GetComponent<Rigidbody2D>();
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, rigidBody.velocity.y - 7);
+        }
     }
 }
