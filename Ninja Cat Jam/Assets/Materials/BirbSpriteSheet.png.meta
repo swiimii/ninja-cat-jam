@@ -1,7 +1,9 @@
 fileFormatVersion: 2
-guid: d19b731c53d41de40ad4cb905ed438e6
+guid: 6e6209b3e11b9f44db80a7676716c41c
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: BirbSpriteSheet_0
+    21300002: BirbSpriteSheet_1
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -40,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -69,13 +71,75 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: BirbSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 13
+        width: 765
+        height: 1084
+      alignment: 9
+      pivot: {x: 0.52541757, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fb03c5eab6244a449f3a24a1a17fe83
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BirbSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 13
+        width: 765
+        height: 1086
+      alignment: 9
+      pivot: {x: 0.52541757, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 780eca86cc7eba649943fa264012dbd2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b652ebb821ef8f645b3711eae9e364cd
+    spriteID: 1ff85f0140e675f4a881427a10aed548
     vertices: []
     indices: 
     edges: []
