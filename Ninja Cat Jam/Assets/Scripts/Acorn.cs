@@ -16,7 +16,10 @@ public class Acorn : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(collision.collider.gameObject);
+        if (collision.collider.gameObject.tag == "Player")
+        {
+            Destroy(collision.collider.gameObject);
+        }
         Destroy(this.gameObject);
     }
 
