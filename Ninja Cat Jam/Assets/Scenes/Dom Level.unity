@@ -522,6 +522,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &275668744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275668741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e83f4e516950604dad7232fb3ca6e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &346736804
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,16 +1119,6 @@ PrefabInstance:
       propertyPath: airControl
       value: 10.6
       objectReference: {fileID: 0}
-    - target: {fileID: 795796396389781967, guid: c0d6b5a86cb6f204282e05cb7dc54591,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8572405130059047753, guid: c0d6b5a86cb6f204282e05cb7dc54591,
-        type: 3}
-      propertyPath: m_TagString
-      value: MainCamera
-      objectReference: {fileID: 0}
     - target: {fileID: 4958549797480427268, guid: c0d6b5a86cb6f204282e05cb7dc54591,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -1146,6 +1148,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 225
+      objectReference: {fileID: 0}
+    - target: {fileID: 795796396389781967, guid: c0d6b5a86cb6f204282e05cb7dc54591,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572405130059047753, guid: c0d6b5a86cb6f204282e05cb7dc54591,
+        type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
       objectReference: {fileID: 0}
     - target: {fileID: 8974237980614966422, guid: c0d6b5a86cb6f204282e05cb7dc54591,
         type: 3}
@@ -1692,6 +1704,7 @@ GameObject:
   - component: {fileID: 1384454040}
   - component: {fileID: 1384454039}
   - component: {fileID: 1384454038}
+  - component: {fileID: 1384454041}
   m_Layer: 0
   m_Name: blueyarn
   m_TagString: Untagged
@@ -1787,6 +1800,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1384454041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384454037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e83f4e516950604dad7232fb3ca6e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1444570896
 GameObject:
   m_ObjectHideFlags: 0
