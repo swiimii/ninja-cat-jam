@@ -28,8 +28,5 @@ public class MovementController : MonoBehaviour
                 behaviors[(int)b.BasicMovement].OnJump();
             }
         }
-        
-
-
     }
 }
