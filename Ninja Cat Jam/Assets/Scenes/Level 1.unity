@@ -256,7 +256,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5501a74a0ba4fab4fbcf9f3f354f094e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7927041033b77904ab999bb2b8900654, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -281,7 +281,7 @@ Transform:
   m_Children:
   - {fileID: 1901813956}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &748074420
 MonoBehaviour:
@@ -308,7 +308,7 @@ Animator:
   m_GameObject: {fileID: 748074417}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fee0d887ee9109f46bb759361a982824, type: 2}
+  m_Controller: {fileID: 9100000, guid: 186fe78a5472b944cb194984bd1782b6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -388,6 +388,7 @@ MonoBehaviour:
   powerupsAcquired: 01000000
   projectilePrefab: {fileID: 2122180038830836103, guid: b2ed2f033f273c1408a5e48c4722fd11,
     type: 3}
+  playerAnimator: {fileID: 748074421}
 --- !u!1 &1127343204
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,7 +467,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1127343207
 BoxCollider2D:

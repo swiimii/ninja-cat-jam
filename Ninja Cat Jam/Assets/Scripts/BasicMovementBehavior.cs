@@ -10,10 +10,12 @@ public class BasicMovementBehavior : MonoBehaviour
     protected GameObject feet, projectilePrefab;
     protected FeetStatus feetStatus;
     protected Rigidbody2D rb2d;
+    protected Animator playerAnimator;
 
 
     private void Start()
     {
+        playerAnimator = GetComponent<MovementController>().playerAnimator;
         feet = GameObject.FindGameObjectWithTag("Feet");
         rb2d = GetComponent<Rigidbody2D>();
         feetStatus = GetComponent<FeetStatus>();
@@ -21,6 +23,7 @@ public class BasicMovementBehavior : MonoBehaviour
     }
     public void OnHorizontalMove()
     {
+        
         moveSpeed = GetComponent<MovementController>().moveSpeed;
         jumpSpeed = GetComponent<MovementController>().jumpSpeed;
         airControl = GetComponent<MovementController>().airControl;
@@ -29,7 +32,13 @@ public class BasicMovementBehavior : MonoBehaviour
         {
             //Flip Sprite
             GetComponent<SpriteRenderer>().flipX = rb2d.velocity.x < 0;
+            playerAnimator.SetBool("isRunning", true) ;
         }
+        else
+        {
+            playerAnimator.SetBool("isRunning", false);
+        }
+
 
         if (feetStatus.grounded)
         {
