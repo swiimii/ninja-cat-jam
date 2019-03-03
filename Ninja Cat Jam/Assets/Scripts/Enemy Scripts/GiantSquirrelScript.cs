@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SquirrelBehavior : EnemyBehavior
+public class GiantSquirrelScript : EnemyBehavior
 {
     private double timeElapsed;
     public float dangerDistance;
     public float attackInterval = 2;
-   
+    public Transform AcornSpawnPoint;
+
 
     public GameObject target;
-   
-    
+
+
     // Update is called once per frame
     void Update()
     {
@@ -21,11 +22,11 @@ public class SquirrelBehavior : EnemyBehavior
             timeElapsed = 0;
             var position = GetComponent<Transform>().position;
             position.y += 5;
-            var acorn = Instantiate(projectilePrefab);
+            var acorn = Instantiate(projectilePrefab,AcornSpawnPoint.position,Quaternion.identity,AcornSpawnPoint);
             acorn.GetComponent<Transform>().position = position;
-            acorn.GetComponent<Rigidbody2D>().velocity = Acorn.CalcVelocity(target.GetComponent<Transform>().position, acorn.GetComponent<Transform>().position);
-            GetComponent<Animator>().SetBool("OnThrow",true);
-            
+            acorn.GetComponent<Rigidbody2D>().velocity = Acorn.CalcVelocity(.5f * target.GetComponent<Transform>().position, .5f * acorn.GetComponent<Transform>().position);
+            GetComponent<Animator>().SetBool("OnThrow", true);
+
         }
     }
 

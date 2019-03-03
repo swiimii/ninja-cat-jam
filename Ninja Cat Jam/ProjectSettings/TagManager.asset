@@ -9,6 +9,7 @@ TagManager:
   - Feet
   - Projectile
   - Enemy
+  - Boss
   layers:
   - Default
   - TransparentFX

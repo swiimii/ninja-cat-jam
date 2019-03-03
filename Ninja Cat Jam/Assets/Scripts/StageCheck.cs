@@ -19,7 +19,7 @@ public class StageCheck : MonoBehaviour
         if (position.x > 120 && !EventTriggered)
         {
             EventTriggered = true;
-            GameObject newSquirrel = Instantiate(squirrelPrefab);
+            GameObject newSquirrel = Instantiate(squirrelPrefab );
             newSquirrel.GetComponent<Transform>().position = new Vector2(114, 20);
             newSquirrel.GetComponent<Transform>().Rotate(new Vector3(0, 180));
         }
