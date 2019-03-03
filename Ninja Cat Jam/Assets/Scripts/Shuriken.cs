@@ -35,7 +35,7 @@ public class Shuriken : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        if(collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Boss"))
         {
             collision.gameObject.GetComponent<EnemyHealthController>().TakeDamage(damage);
         }
