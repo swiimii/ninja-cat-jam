@@ -20,7 +20,7 @@ public class BasicMovementBehavior : MonoBehaviour
     {
         var rb2d = GetComponent<Rigidbody2D>();
         rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
-
+ 
     }
 
     public void OnFire(Transform startPosition, Vector2 velocity)
@@ -31,7 +31,7 @@ public class BasicMovementBehavior : MonoBehaviour
         projectile.GetComponent<Transform>().position = position;
 
         var rigidBody = projectile.GetComponent<Rigidbody2D>();
-        rigidBody.velocity = new Vector2(velocity.x/3 + 50, velocity.y/3 + 20);
+        rigidBody.velocity = Shuriken.CalcVelocity(startPosition.position);
         rigidBody.gravityScale = 0.5F;
 
     }
