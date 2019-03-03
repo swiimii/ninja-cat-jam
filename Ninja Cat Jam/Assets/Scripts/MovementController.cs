@@ -10,6 +10,7 @@ public class MovementController : MonoBehaviour
     public float airControl;
     public bool[] powerupsAcquired = new bool[sizeof(b)];
     public GameObject projectilePrefab;
+    public Animator playerAnimator;
 
     bool grounded;
     enum b {BasicMovement, DoubleJump}; //for navigating through the "BasicMovementBehavior" and "PowerupsAcquired" array
