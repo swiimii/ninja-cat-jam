@@ -86,9 +86,10 @@ GameObject:
   - component: {fileID: 3173383146210617126}
   - component: {fileID: 3173383146210617127}
   - component: {fileID: 3173383146210617125}
+  - component: {fileID: 8293351344184585230}
   m_Layer: 0
   m_Name: Birb Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,7 +209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28d145d780004a4480ab83ddf909051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headHitbox: {fileID: 0}
 --- !u!114 &3173383146210617127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,3 +272,18 @@ PolygonCollider2D:
       - {x: 0.5243416, y: -1.5670154}
       - {x: -1.7151642, y: -1.1551111}
       - {x: -2.6602554, y: -0.49004674}
+--- !u!114 &8293351344184585230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3173383146210617119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b4e54442915054c8e12d518192848f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 4
+  colorIntegrity: 0
+  hit: {fileID: 0}

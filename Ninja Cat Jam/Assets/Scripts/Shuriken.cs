@@ -7,6 +7,7 @@ using System;
 public class Shuriken : MonoBehaviour
 {
     double timeElapsed = 0;
+    int damage = 1;
 
     private void Start()
     {
@@ -34,6 +35,10 @@ public class Shuriken : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<EnemyHealthController>().TakeDamage(damage);
+        }
 
         Destroy(this.gameObject);
     }
