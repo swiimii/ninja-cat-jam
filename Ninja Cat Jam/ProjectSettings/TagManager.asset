@@ -7,7 +7,6 @@ TagManager:
   - Platform
   - Ground
   - Feet
-  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -17,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
+  - 
   - 
   - 
   - 
