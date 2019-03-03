@@ -12,10 +12,12 @@ public class Shuriken : MonoBehaviour
     {
         Vector2 mousePosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+        /*
         print("origin x: " + originPosition.x);
         print("origin y: " + originPosition.y);
         print("mouse x: " + mousePosition.x);
         print("mouse y: " + mousePosition.y);
+        */
 
         double theta = Math.Atan2(mousePosition.y - originPosition.y, mousePosition.x - originPosition.x);
         print(theta);

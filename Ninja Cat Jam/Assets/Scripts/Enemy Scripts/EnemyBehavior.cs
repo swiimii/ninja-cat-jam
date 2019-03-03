@@ -26,6 +26,7 @@ public abstract class EnemyBehavior : MonoBehaviour
     public virtual void OnWallHit()
     {
         direction *= -1;
+
     }
 
     public abstract void OnPlayerHit();

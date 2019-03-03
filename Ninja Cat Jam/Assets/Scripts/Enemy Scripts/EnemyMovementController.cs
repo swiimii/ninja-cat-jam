@@ -4,38 +4,37 @@ using UnityEngine;
 
 public class EnemyMovementController : MonoBehaviour
 {
-    public EnemyBehavior[] behaviors;
+    public EnemyBehavior behavior;
     public float moveSpeed, jumpSpeed;
     public GameObject projectilePrefab, feet;
     public Animator spriteAnimator;
 
     bool grounded;
-    enum b { BasicEnemyMovement, BirbMovement }; //for navigating through the "BasicMovementBehavior" and "PowerupsAcquired" array
+    //for navigating through the "BasicMovementBehavior" and "PowerupsAcquired" array
 
 
     // Update is called once per frame
     void Update()
     {
         //Update horizontal movement
-        behaviors[(int)b.BasicEnemyMovement].OnHorizontalMove();
+        behavior.OnHorizontalMove();
 
 
         //CheckJump
         if (Input.GetButtonDown("Jump"))
         {
             
-            behaviors[(int)b.BasicEnemyMovement].OnJump();
+            behavior.OnJump();
             
         }
 
-
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Ground"))
+        //Check OnWallHit
         {
-            behaviors[(int)b.BasicEnemyMovement].OnWallHit();
+            Debug.DrawRay(transform.position, new Vector3(-3, 0, 0));
         }
+
+
     }
+
+
 }

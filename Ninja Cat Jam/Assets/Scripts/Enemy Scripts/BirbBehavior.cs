@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class BirbBehavior : EnemyBehavior
 {
-
-    // Update is called once per frame
-
-
-
+    public CapsuleCollider2D headHitbox;
     public override void OnHorizontalMove()
     {
         if (feet.grounded)
@@ -23,14 +19,18 @@ public class BirbBehavior : EnemyBehavior
 
     }
 
-    public override void OnWallHit()
-    {
-        direction *= -1;
-    }
 
     public override void OnPlayerHit()
     {
         
+    }
+
+    public override void OnWallHit()
+    {
+        base.OnWallHit();
+        headHitbox.offset.Set(headHitbox.offset.x * -1, headHitbox.offset.y);
+        Debug.Log("Flip");
+
     }
 
     public override void OnDamaged(int incomingDamage)
@@ -38,13 +38,6 @@ public class BirbBehavior : EnemyBehavior
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            OnWallHit();
-        }
-    }
 
 
 }
