@@ -45,4 +45,5 @@ public class SquirrelBehavior : EnemyBehavior
     {
         //throw new System.NotImplementedException();
     }
+
 }

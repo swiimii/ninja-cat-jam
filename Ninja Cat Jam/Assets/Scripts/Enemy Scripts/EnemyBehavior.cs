@@ -33,4 +33,9 @@ public abstract class EnemyBehavior : MonoBehaviour
 
     public abstract void SetDirection(int i);
 
+    public int GetDirection()
+    {
+        return direction;
+    }
+
 }
