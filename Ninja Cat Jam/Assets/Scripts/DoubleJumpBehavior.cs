@@ -8,7 +8,7 @@ public class DoubleJumpBehavior : BasicMovementBehavior
 
     public override void OnJump()
     {
-        if (feetStatus.grounded || jumpsLeft != 0)
+        if (feetStatus.grounded || jumpsLeft > 0)
         {
             var rb2d = GetComponent<Rigidbody2D>();
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);

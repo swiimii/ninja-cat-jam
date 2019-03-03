@@ -13,23 +13,20 @@ public class BasicMovementBehavior : MonoBehaviour
     protected Animator playerAnimator;
 
 
-    private void Start()
+    public void Start()
     {
         playerAnimator = GetComponent<MovementController>().playerAnimator;
         feet = GameObject.FindGameObjectWithTag("Feet");
         rb2d = GetComponent<Rigidbody2D>();
         feetStatus = GetComponent<FeetStatus>();
         projectilePrefab = GetComponent<MovementController>().projectilePrefab;
-    }
-    public void OnHorizontalMove()
-    {
-
         moveSpeed = GetComponent<MovementController>().moveSpeed;
         jumpSpeed = GetComponent<MovementController>().jumpSpeed;
         airControl = GetComponent<MovementController>().airControl;
         shurikenVelocity = GetComponent<MovementController>().shurikenVelocity;
-      
-
+    }
+    public void OnHorizontalMove()
+    {
         if (rb2d.velocity.x != 0)
         {
             //Flip Sprite
@@ -57,6 +54,8 @@ public class BasicMovementBehavior : MonoBehaviour
             //sets the velocity to just below the max airspeed
             rb2d.velocity = new Vector2((moveSpeed - .01f) * rb2d.velocity.x / Mathf.Abs(rb2d.velocity.x), rb2d.velocity.y) ;
         }
+
+        
         
     }
 
