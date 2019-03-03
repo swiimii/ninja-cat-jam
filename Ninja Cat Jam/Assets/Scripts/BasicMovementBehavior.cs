@@ -42,11 +42,13 @@ public class BasicMovementBehavior : MonoBehaviour
         if (feetStatus.grounded)
         {
             rb2d.velocity = new Vector2(moveSpeed * Input.GetAxisRaw("Horizontal"), rb2d.velocity.y);
+            playerAnimator.SetBool("isAirborne", false);
         }
 
         else if(Mathf.Abs(rb2d.velocity.x) < moveSpeed)
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x + Input.GetAxisRaw("Horizontal") * airControl, rb2d.velocity.y);
+            playerAnimator.SetBool("isAirborne", true);
 
         }
         if (Mathf.Abs(rb2d.velocity.x) >= moveSpeed)
