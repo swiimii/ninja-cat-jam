@@ -100,7 +100,7 @@ public class BasicMovementBehavior : MonoBehaviour
         if (!feetStatus.grounded)
         {
             var rigidBody = GetComponent<Rigidbody2D>();
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x, rigidBody.velocity.y - 7);
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, rigidBody.velocity.y);
         }
     }
 }
