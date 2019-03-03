@@ -12,12 +12,10 @@ public abstract class EnemyBehavior : MonoBehaviour
 
     protected virtual void Start()
     {
-        
         moveSpeed = GetComponent<EnemyMovementController>().moveSpeed;
         jumpSpeed = GetComponent<EnemyMovementController>().jumpSpeed;
         feet = GetComponent<EnemyMovementController>().feet.GetComponent<EnemyFeetStatus>() ;
         spriteAnimator = GetComponent<EnemyMovementController>().spriteAnimator;
-        projectilePrefab = GetComponent<EnemyMovementController>().projectilePrefab;
 
 
     }
@@ -34,10 +32,5 @@ public abstract class EnemyBehavior : MonoBehaviour
     }
 
     public abstract void SetDirection(int i);
-
-    public int GetDirection()
-    {
-        return direction;
-    }
 
 }

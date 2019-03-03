@@ -18,7 +18,7 @@ public class Acorn : MonoBehaviour
     {
         if (collision.collider.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerHealthScript>().TakeDamage(1);
+            Destroy(collision.collider.gameObject);
         }
         Destroy(this.gameObject);
     }

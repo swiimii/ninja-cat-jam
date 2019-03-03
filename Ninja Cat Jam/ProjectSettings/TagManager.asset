@@ -8,7 +8,6 @@ TagManager:
   - Ground
   - Feet
   - Projectile
-  - Enemy
   layers:
   - Default
   - TransparentFX

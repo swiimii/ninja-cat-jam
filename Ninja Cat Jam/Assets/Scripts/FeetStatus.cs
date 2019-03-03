@@ -46,7 +46,7 @@ public class FeetStatus : MonoBehaviour
         else
             grounded = false;
         
-        //print(hit.collider);
+        print(hit.collider);
         
     }
     

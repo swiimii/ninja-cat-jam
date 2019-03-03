@@ -24,11 +24,10 @@ public class BasicMovementBehavior : MonoBehaviour
         jumpSpeed = GetComponent<MovementController>().jumpSpeed;
         airControl = GetComponent<MovementController>().airControl;
         shurikenVelocity = GetComponent<MovementController>().shurikenVelocity;
-
     }
     public void OnHorizontalMove()
     {
-        if (Mathf.Abs(rb2d.velocity.x) > 0.5)
+        if (rb2d.velocity.x != 0)
         {
             //Flip Sprite
             GetComponent<SpriteRenderer>().flipX = rb2d.velocity.x < 0;
@@ -44,15 +43,7 @@ public class BasicMovementBehavior : MonoBehaviour
         {
             rb2d.velocity = new Vector2(moveSpeed * Input.GetAxisRaw("Horizontal"), rb2d.velocity.y);
             playerAnimator.SetBool("isAirborne", false);
-
-            if (Input.GetAxisRaw("Horizontal") == 0 && rb2d.velocity.y < 0)
-            {
-                rb2d.velocity = new Vector2(0, 0);
-                return;
-            }
         }
-
-        
 
         else if(Mathf.Abs(rb2d.velocity.x) < moveSpeed)
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BirbBehavior : EnemyBehavior
 {
+    public CapsuleCollider2D headHitbox;
     public override void OnHorizontalMove()
     {
         if (feet.grounded)
@@ -28,12 +29,16 @@ public class BirbBehavior : EnemyBehavior
     {
         direction = i / Mathf.Abs(i);
 
+        //GetComponent<SpriteRenderer>().flipX = direction == 1;
         Vector3 scale = transform.localScale;
         scale.x = -i;
         transform.localScale = scale;
     }
 
+    public override void OnDamaged(int incomingDamage)
+    {
 
+    }
 
 
 

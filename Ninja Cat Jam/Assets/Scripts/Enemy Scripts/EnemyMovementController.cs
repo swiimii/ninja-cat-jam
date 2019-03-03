@@ -34,25 +34,16 @@ public class EnemyMovementController : MonoBehaviour
         hit = Physics2D.Raycast(transform.position + new Vector3(leftOffset, 0, 0), new Vector3(-1, 0, 0), 1);
         if(hit && !hit.collider.gameObject.CompareTag("Projectile"))
         {
-            if (hit.collider.gameObject.CompareTag("Player") && behavior.GetDirection() < 0)
-            {
-                hit.collider.gameObject.GetComponent<PlayerHealthScript>().TakeDamage(1);
-            }
             behavior.SetDirection(1);
+
         }
-
-
 
         Debug.DrawRay(transform.position, new Vector3(rightOffset+.2f, 0, 0));
         hit = Physics2D.Raycast(transform.position + new Vector3(rightOffset, 0, 0), new Vector3(1, 0, 0), 1);
         if (hit && !hit.collider.gameObject.CompareTag("Projectile"))
         {
-            if (hit.collider.gameObject.CompareTag("Player") && behavior.GetDirection() > 0)
-            {
-                hit.collider.gameObject.GetComponent<PlayerHealthScript>().TakeDamage(1);
-            }
             behavior.SetDirection(-1);
-            
+
         }
 
 
