@@ -286,3 +286,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 4
   colorIntegrity: 0
+  hit: {fileID: 0}

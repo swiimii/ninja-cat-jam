@@ -39,6 +39,7 @@ public class Shuriken : MonoBehaviour
         {
             collision.gameObject.GetComponent<EnemyHealthController>().TakeDamage(damage);
         }
+
         Destroy(this.gameObject);
     }
 
